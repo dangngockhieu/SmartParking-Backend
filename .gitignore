@@ -1,0 +1,56 @@
+# =========================
+# Go binaries and build outputs
+# =========================
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Ignore the default compiled binary name (thường là 'main' hoặc tên thư mục project)
+/main
+/app
+# Thêm tên file thực thi của project bạn vào đây nếu có tên khác
+
+# =========================
+# Environment Variables (QUAN TRỌNG)
+# =========================
+# KHÔNG BAO GIỜ push các file chứa config database, API keys, JWT secrets lên Git
+.env.local
+.env.production
+.env.development
+.env
+!.env.example # Cho phép push file .env.example (chỉ chứa tên biến, không chứa value thật)
+
+docker-compose.yaml
+
+# =========================
+# Go Workspace & Vendor
+# =========================
+go.work
+go.work.sum
+# vendor/ # Bỏ comment dòng này nếu bạn không muốn push thư mục vendor lên git (khuyên dùng khi dùng Go Modules)
+
+# =========================
+# IDEs and Editors
+# =========================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# =========================
+# OS specific files
+# =========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+key.pem

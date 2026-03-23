@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(90deg, #2ecc71, #27ae60);
+      color: #fff;
+    }
+
+    .content {
+      padding: 28px;
+      color: #333333;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #27ae60;
+      color: #ffffff !important;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .footer {
+      padding: 18px;
+      font-size: 12px;
+      color: #999999;
+      text-align: center;
+      border-top: 1px solid #eeeeee;
+    }
+  </style>
+</head>
+
+<body>
+  <table width="100%" bgcolor="#f4f6f8" style="padding:20px;">
+    <tr>
+      <td>
+        <table class="container" align="center">
+          <tr>
+            <td class="header">
+              <h1>Smart Parking</h1>
+            </td>
+          </tr>
+          <tr>
+            <td class="content">
+              <p>Chào <strong>{{.FirstName}}</strong>,</p>
+              <p>Vui lòng nhấn vào nút bên dưới để xác thực tài khoản của bạn:</p>
+              <div style="text-align:center;">
+                <a href="{{.VerifyURL}}" class="btn">Xác thực tài khoản ngay</a>
+              </div>
+              <p style="font-size:12px; color:#666;">Liên kết này hết hạn sau 30 phút.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="footer">© 2026 Smart Parking HCMUT</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>

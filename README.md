@@ -2,7 +2,7 @@
 
 Backend API cho hệ thống bãi xe thông minh, viết bằng Go, sử dụng Gin + GORM + MySQL + Redis.
 
-Link: [Frontend](https://github.com/dangngockhieu/DADN-SmartParking-Frontend)
+Link: [Frontend](https://github.com/dangngockhieu/SmartParking-Frontend)
 
 ## 1) Tính năng chính
 

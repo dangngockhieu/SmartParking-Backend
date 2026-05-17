@@ -92,35 +92,6 @@ func (s *Service) AdminUpdateStatus(id uint64, req AdminUpdateParkingSlotRequest
 	return s.updateStatus(slot, req.Status)
 }
 
-func (s *Service) SensorUpdateStatus(req SensorUpdateParkingSlotRequest) (*UpdateParkingSlotResponse, error) {
-	slot, err := s.repo.FindByDeviceMacAndPort(req.Mac, req.Port)
-	if err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, appErrors.NewNotFound("Không tìm thấy vị trí đỗ")
-		}
-		return nil, appErrors.NewInternal("Lấy vị trí đỗ thất bại")
-	}
-
-	if slot.Status == SlotStatusMaintain {
-		return &UpdateParkingSlotResponse{
-			Changed:   false,
-			ID:        slot.ID,
-			LotID:     slot.LotID,
-			Name:      slot.Name,
-			Message:   "Ô đang bảo trì",
-			OldStatus: slot.Status,
-			NewStatus: slot.Status,
-		}, nil
-	}
-
-	newStatus := SlotStatusAvailable
-	if req.IsOccupied != nil && *req.IsOccupied {
-		newStatus = SlotStatusOccupied
-	}
-
-	return s.updateStatus(slot, newStatus)
-}
-
 func (s *Service) ChangeDevice(id uint64, req ChangeSlotDeviceRequest) (*ParkingSlot, error) {
 	_, err := s.repo.FindByID(id)
 	if err != nil {

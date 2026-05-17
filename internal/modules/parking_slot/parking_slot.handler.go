@@ -108,32 +108,6 @@ func (h *Handler) AdminUpdateStatus(c *gin.Context) {
 	response.Success(c, http.StatusOK, result.Message, result)
 }
 
-// SensorUpdateStatus godoc
-// @Summary Thiết bị cảm biến cập nhật trạng thái vị trí đỗ
-// @Description Cập nhật trạng thái vị trí đỗ xe từ cảm biến hoặc thiết bị IoT
-// @Tags parking_slot
-// @Accept json
-// @Produce json
-// @Param request body SensorUpdateParkingSlotRequest true "Dữ liệu trạng thái từ cảm biến"
-// @Success 200 {object} map[string]interface{}
-// @Failure 400 {object} map[string]interface{}
-// @Router /parking-slots/sensor [post]
-func (h *Handler) SensorUpdateStatus(c *gin.Context) {
-	var req SensorUpdateParkingSlotRequest
-	if err := c.ShouldBindJSON(&req); err != nil {
-		c.Error(appErrors.NewBadRequest("Dữ liệu không hợp lệ"))
-		return
-	}
-
-	result, err := h.service.SensorUpdateStatus(req)
-	if err != nil {
-		c.Error(err)
-		return
-	}
-
-	response.Success(c, http.StatusOK, result.Message, result)
-}
-
 // ChangeDevice godoc
 // @Summary Đổi thiết bị cho vị trí đỗ
 // @Description Cập nhật hoặc thay đổi thiết bị IoT gắn với vị trí đỗ xe theo ID
